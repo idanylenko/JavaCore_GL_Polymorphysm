@@ -19,30 +19,29 @@ public class Main {
         Shape[] shapes = new Shape[]{rectangle1, rectangle2, rectangle3, rectangle4, rectangle5, circle1, circle2, triangle1, triangle2};
 
         double sumArea = 0;
-        for (Shape elem1 : shapes) {
-            System.out.print(elem1.toString());
-            System.out.print(", area is: ");
-            System.out.println(elem1.calcArea());
-            sumArea += elem1.calcArea();
-        }
-
-        System.out.println("Total area is: " + sumArea);
-
         double sumRectArea = 0;
         double sumTriangleArea = 0;
         double sumCircleArea = 0;
 
-        for (Shape elem2 : shapes) {
-            if (elem2 instanceof Rectangle) {
-                sumRectArea += elem2.calcArea();
+        for (Shape elem : shapes) {
+            System.out.print(elem.toString());
+            System.out.print(", area is: ");
+            System.out.println(elem.calcArea());
+            sumArea += elem.calcArea();
+
+            if (elem instanceof Rectangle) {
+                sumRectArea += elem.calcArea();
             }
-            if (elem2 instanceof Triangle) {
-                sumTriangleArea += elem2.calcArea();
+            if (elem instanceof Triangle) {
+                sumTriangleArea += elem.calcArea();
             }
-            if (elem2 instanceof Circle) {
-                sumCircleArea += elem2.calcArea();
+            if (elem instanceof Circle) {
+                sumCircleArea += elem.calcArea();
             }
         }
+
+        System.out.println("Total area is: " + sumArea);
+
         System.out.println("Rectangles total area: " + sumRectArea);
         System.out.println("Triangles total area: " + sumTriangleArea);
         System.out.println("Circles total area: " + sumCircleArea);
